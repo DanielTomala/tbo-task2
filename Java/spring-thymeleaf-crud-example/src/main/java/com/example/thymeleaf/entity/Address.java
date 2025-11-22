@@ -16,6 +16,9 @@ import org.slf4j.LoggerFactory;
 @Table(name = "address")
 @EqualsAndHashCode(of = {"id"})
 public class Address {
+
+    private static final String MASK_CHAR = "*";
+
     @Transient
     private static final Logger logger = LoggerFactory.getLogger(Address.class);
 
@@ -57,13 +60,13 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id='" + id + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", street='" + street + '\'' +
-                ", number='" + number + '\'' +
-                ", complement='" + complement + '\'' +
-                ", district='" + district + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
+                ", zipCode='" + MASK_CHAR.repeat(zipCode.length()) + '\'' +
+                ", street='" + MASK_CHAR.repeat(street.length()) + '\'' +
+                ", number='" + MASK_CHAR.repeat(number.length()) + '\'' +
+                ", complement='" + MASK_CHAR.repeat(complement.length()) + '\'' +
+                ", district='" + MASK_CHAR.repeat(district.length()) + '\'' +
+                ", city='" + MASK_CHAR.repeat(city.length()) + '\'' +
+                ", state='" + MASK_CHAR.repeat(state.length()) + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
